@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#container {
+
+    /* display: flex;
+    flex-flow: column nowrap; */
+    margin: 150px 150px 0 100px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.box {
+    border-style: dotted;
+    flex: 1;
+    width: 100%;
+
+    /* add something so that the box sizes will automatically adjust*/
+}
+.row {
+    /* height: auto;  */
+    display: flex;
+    flex-flow: row nowrap;
+    /* align-items: stretch; */
+
+}
