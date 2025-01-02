@@ -13,11 +13,19 @@ popup for the number of squares per side.
 const container = document.querySelector("#container");
 const body = document.querySelector("body");
 const button = document.createElement("button");
+const input = document.querySelector("#favcolor");
+
+let slider = document.getElementById("myRange");
+
+slider.oninput = function() {
+    deleteGrid();
+    generateGrid(this.value);
+  }
 
 container.style.height = "650px";
 container.style.width = "650px";
 
-button.textContent = "Click me to regenerate grid!";
+button.textContent = "Regenerate grid(or use slider))";
 button.addEventListener("click", () => {
     let size = prompt("How large will the new grid be?");
     while (size > 100 || size < 0 || isNaN(size)) {
@@ -50,8 +58,8 @@ function generateGrid(size = 16) {
             const box = document.createElement("div");
             box.classList.add("box");
             box.addEventListener("mouseenter", () => {
-                box.style.backgroundColor = `rgb(${getRandom()}, ${getRandom()}, ${getRandom()})`;
-                // box.style.backgroundColor = "rgb(255, 120, 120)";
+                // box.style.backgroundColor = `rgb(${getRandom()}, ${getRandom()}, ${getRandom()})`;
+                box.style.backgroundColor = `${favcolor.value}`;
             });
             row.appendChild(box);
 
@@ -61,3 +69,4 @@ function generateGrid(size = 16) {
 }
 
 generateGrid(12);
+
